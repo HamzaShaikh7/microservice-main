@@ -3,23 +3,21 @@ package com.connect.order_service.controller;
 
 import com.connect.order_service.dto.OrderRequest;
 import com.connect.order_service.service.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/order")
-public class OrderController
-{
+@RequiredArgsConstructor
+public class OrderController {
 
-    @Autowired
-    private OrderService orderService;
-
+    private final OrderService orderService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String placeOrder(@RequestBody OrderRequest orderRequest){
+    public String placeOrder(@RequestBody OrderRequest orderRequest) {
         orderService.placeOrder(orderRequest);
-        return "Order place successfully";
+        return "Order Placed Successfully";
     }
 }

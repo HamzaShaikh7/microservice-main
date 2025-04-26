@@ -2,9 +2,12 @@ package com.connect.order_service.model;
 
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "t_orders")
@@ -17,6 +20,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String orderNumber;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<OrderLineItems> orderLineItemsList;
+    private String skuCode;
+    private BigDecimal price;
+    private Integer quantity;
 }

@@ -1,16 +1,6 @@
 package com.connect.order_service.dto;
 
+import java.math.BigDecimal;
 
-import com.connect.order_service.model.OrderLineItems;
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.util.List;
-
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class OrderRequest {
-    private List<OrderLineItemsDto> orderLineItemsDtoList;
+public record OrderRequest(Long id, String skuCode, BigDecimal price, Integer quantity) {
 }
